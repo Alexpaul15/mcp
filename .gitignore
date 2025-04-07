@@ -34,9 +34,14 @@ ENV/
 *.swp
 *.swo
 
-# Logs
+# Project specific
+naukri_applied_jobs.csv
 *.log
 
 # Local development
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# ChromeDriver
+chromedriver
+chromedriver.exe 
