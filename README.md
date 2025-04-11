@@ -1,80 +1,75 @@
-# Naukri.com Job Application Bot
+# MCP Server Integration
 
-An automated bot for applying to jobs on Naukri.com using Selenium WebDriver.
+This repository contains the integration between MCP Server and GitHub, allowing for automated repository management and workflow automation.
 
-## Features
+## Setup
 
-- Automated job search based on domains and locations
-- Smart job application process
-- Handles multiple job cards and pages
-- Saves applied jobs history
-- Configurable application limits
-- Anti-detection measures
-- Robust error handling
-
-## Prerequisites
-
-- Python 3.x
-- Chrome browser
-- ChromeDriver (automatically managed by webdriver_manager)
-- Required Python packages (see requirements.txt)
-
-## Installation
-
-1. Clone the repository:
+1. Clone this repository:
 ```bash
-git clone https://github.com/Alexpaul15/mcp.git
+git clone https://github.com/yourusername/mcp.git
 cd mcp
 ```
 
-2. Install required packages:
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
+3. Configure environment variables:
+   - Copy `.env.template` to `.env`
+   - Add your GitHub token and MCP server configuration
+
 ## Configuration
 
-Edit the following parameters in `naukri_bot.py`:
+### GitHub Token
+Create a GitHub Personal Access Token with the following permissions:
+- `repo` (Full control of repositories)
+- `workflow` (Update GitHub Action workflows)
+- `write:packages` and `delete:packages` (Package management)
 
-- `job_domains`: List of job domains to search for
-- `locations`: List of preferred locations
-- `max_applications`: Maximum number of applications to submit
-- `default_answers`: Default answers for application forms
+### MCP Server
+Configure your MCP server settings in the `.env` file:
+```
+MCP_SERVER_URL=http://localhost:8000
+MCP_SERVER_API_KEY=your_mcp_api_key_here
+```
 
 ## Usage
 
-1. Run the bot:
+1. Create a new repository:
 ```bash
-python naukri_bot.py
+python create_repo.py
 ```
 
-2. When the browser opens, you'll have 60 seconds to log in to your Naukri.com account manually.
-
-3. The bot will then automatically:
-   - Search for jobs based on configured domains and locations
-   - Apply to matching jobs
-   - Save application history
-   - Handle pagination and multiple job cards
+2. Push your code:
+```bash
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+```
 
 ## Features
 
-- **Smart Job Detection**: Multiple methods to find and process job listings
-- **Anti-Detection**: Measures to avoid bot detection
-- **Error Recovery**: Automatic recovery from common errors
-- **Application Tracking**: Saves applied jobs to prevent duplicates
-- **Configurable**: Easy to modify search parameters and application settings
+- Automated repository creation
+- GitHub API integration
+- MCP server connection
+- Workflow automation
+- Package management
 
-## Safety Features
+## Security
 
-- Skips jobs requiring external website applications
-- Handles system locks and popups
-- Manages browser windows and tabs safely
-- Recovers from common errors and exceptions
+- Never commit your `.env` file
+- Keep your GitHub token secure
+- Use environment variables for sensitive data
 
 ## Contributing
 
-Feel free to submit issues and enhancement requests!
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
